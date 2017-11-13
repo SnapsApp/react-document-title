@@ -37,7 +37,7 @@ var DocumentTitle = module.exports = withSideEffect(
 )(DocumentTitleBase);
 
 DocumentTitle.join = function (tokens) {
-  const lastToken = tokens.slice(-1);
-  const remainingReversed = tokens.slice().reverse();
-  return remainingReversed.concat([lastToken]);
+    const lastToken = tokens.slice(-1);
+    const remainingReversed = tokens.slice(0, -1).reverse();
+    return remainingReversed.concat([lastToken]).join(' - ');
 };
